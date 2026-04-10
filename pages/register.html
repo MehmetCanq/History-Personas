@@ -1,23 +1,24 @@
-<div class="auth-container" style="max-width: 400px; margin: 50px auto; padding: 20px; border: 1px solid #ccc; border-radius: 8px;">
+<div class="auth-container">
     <h2>Kayıt Ol</h2>
     <form id="register-form">
-        <div style="margin-bottom: 10px;">
-            <input type="text" id="reg-isim" placeholder="İsim" required style="width: 100%; padding: 8px;">
+        <div class="form-group">
+            <input type="text" id="reg-isim" class="auth-input" placeholder="İsim" required>
         </div>
-        <div style="margin-bottom: 10px;">
-            <input type="text" id="reg-soyisim" placeholder="Soyisim" required style="width: 100%; padding: 8px;">
+        <div class="form-group">
+            <input type="text" id="reg-soyisim" class="auth-input" placeholder="Soyisim" required>
         </div>
-        <div style="margin-bottom: 10px;">
-            <input type="email" id="reg-email" placeholder="E-posta Adresi" required style="width: 100%; padding: 8px;">
+        <div class="form-group">
+            <input type="email" id="reg-email" class="auth-input" placeholder="E-posta Adresi" required>
         </div>
-        <div style="margin-bottom: 10px;">
-            <input type="password" id="reg-sifre" placeholder="Şifre" required style="width: 100%; padding: 8px;">
+        <div class="form-group">
+            <input type="password" id="reg-sifre" class="auth-input" placeholder="Şifre" required>
         </div>
-        <div style="margin-bottom: 15px;">
-            <label style="font-size: 14px; color: #555;">Profil Fotoğrafı</label>
-            <input type="file" id="reg-foto" accept="image/*" style="width: 100%;">
+        <div class="form-group">
+            <label>Profil Fotoğrafı</label>
+            <input type="file" id="reg-profil-foto" accept="image/*" class="auth-input">
         </div>
-        <button type="submit" style="width: 100%; padding: 10px; background: #333; color: white; border: none; cursor: pointer;">Kayıt İşlemini Tamamla</button>
+        <button type="submit" class="auth-btn">Kayıt İşlemini Tamamla</button>
     </form>
-    <p id="reg-mesaj" style="color: red; margin-top: 10px; font-size: 14px;">AAAAAAAa</p>
+    <p id="reg-mesaj"></p>
 </div>
+  

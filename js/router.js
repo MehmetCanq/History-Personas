@@ -1,15 +1,51 @@
+const urlPagetitle = "History Personas";
 
-const routes = {
-    "/": "/pages/home.html",
-    "/login": "/pages/login.html",
-    "/register": "/pages/register.html",
-    "/settings": "/pages/settings.html",
-    
+window.navigateTo = (path) => {
+    window.history.pushState({}, "", path);
+    urlLocationHandler();
+};
+
+const urlRoutes = {
+    404: {
+        template: "pages/404.html",
+        title: "404 | " + urlPagetitle,
+        description: "Page not found"
+    },
+    "/": {
+        template: "pages/home.html",
+        title: "Home | " + urlPagetitle,
+        description: "Anasayfa"
+    },
+    "/login": {
+        template: "pages/login.html",
+        title: "Login | " + urlPagetitle,
+        description: "Giriş Yap"
+    },
+    "/register": {
+        template: "pages/register.html",
+        title: "Register | " + urlPagetitle,
+        description: "Kayıt Ol"
+    },
+    "/settings": {
+        template: "pages/settings.html",
+        title: "Settings | " + urlPagetitle,
+        description: "Ayarlar"
+    },
+    "/chat": {
+        template: "pages/chat.html",
+        title: "Chat | " + urlPagetitle,
+        description: "Sohbet"
+    },
+    "/profil": {
+        template: "pages/profil.html",
+        title: "Profil | " + urlPagetitle,
+        description: "Profil"
+    }
 };
 
 const loadNavbar = async () => {
     try {
-        const response = await fetch('/navbar/navbar.html');
+        const response = await fetch('navbar/navbar.html');
         const html = await response.text();
         document.getElementById('navbar-container').innerHTML = html;
     } catch (error) {
@@ -17,40 +53,45 @@ const loadNavbar = async () => {
     }
 };
 
-const router = async () => {
-    const path = window.location.pathname; 
+const urlLocationHandler = async () => {
+    let location = window.location.pathname;
 
-    if (path === '/index.html') {
-        path = '/';
-    }
-    const route = routes[path] || "/pages/404.html";
+        const route = urlRoutes[location] || urlRoutes["pages/404.html"] || urlRoutes[404];
+
     try {
-        const response = await fetch(route);
-        if (!response.ok) throw new Error('Sayfa bulunamadı'); 
+        const response = await fetch(route.template);
+        const html = await response.text();
+        document.getElementById("app").innerHTML = html;
+        document.title = route.title;
+
+        const meta = document.querySelector('meta[name="description"]');
+        if (meta) meta.setAttribute("content", route.description);
+
+        window.dispatchEvent(new CustomEvent('pageLoaded', { detail: { path: location } }));
         
-        const html = await response.text();
-        document.getElementById('app').innerHTML = html;
     } catch (error) {
-        const response = await fetch('/pages/404.html');
-        const html = await response.text();
-        document.getElementById('app').innerHTML = html;
+        console.error("Sayfa yüklenirken hata oluştu:", error);
+        document.getElementById("app").innerHTML = "<h1>Sayfa yüklenemedi.</h1>";
     }
 };
 
-const navigateTo = (url) => {
-    window.history.pushState(null, null, url);
-    router();
-};
+document.addEventListener("DOMContentLoaded", async () => {
+    await loadNavbar();
+    urlLocationHandler();
 
-document.addEventListener("DOMContentLoaded", () => {
-    loadNavbar();
-    document.body.addEventListener("click", e => {
-        if (e.target.matches("[data-link]")) {
-            e.preventDefault(); 
-            navigateTo(e.target.href); 
+    document.addEventListener("click", (e) => {
+        const target = e.target.closest("a");
+        if (!target) return;
+        
+        const href = target.getAttribute("href");
+        if (href && href.startsWith("/") && !target.hasAttribute('target')) {
+            const isExternal = href.startsWith('http') || target.getAttribute('target') === '_blank';
+            if (!isExternal) {
+                e.preventDefault();
+                window.navigateTo(href);
+            }
         }
     });
-
-    window.addEventListener("popstate", router);
-    router();
 });
+
+window.onpopstate = urlLocationHandler;

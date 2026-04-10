@@ -1,9 +1,9 @@
 :root {
     --bg-color: #262218;
-    --accent-color: #886402d8;
-    --accent-hover: #a67c00;
-    --text-color: #f0e6d2;
-    --secondary-text: rgb(184, 182, 182);
+    --accent-color: #ffffffd8;
+    --accent-hover: #ffffff;
+    --text-color: #757575;
+    --secondary-text: rgb(72, 66, 66);
     --border-color: #4a3e2a;
     --card-bg: #2d2921;
 }

@@ -1,0 +1,37 @@
+<div class="chat-wrapper">
+    <aside class="chat-sidebar" id="chat-sidebar">
+        <div class="sidebar-header">
+            <img id="chat-char-img" src="" alt="">
+            <h3 id="chat-char-name"></h3>
+        </div>
+        <div class="sidebar-info">
+            <p><strong>Dönem:</strong> <span id="chat-char-era"></span></p>
+            <p><strong>Uzmanlık:</strong> <span id="chat-char-exp"></span></p>
+            <p id="chat-char-bio"></p>
+        </div>
+        <button class="new-chat-btn" onclick="navigateTo('/')">Yeni Karakter Seç</button>
+    </aside>
+
+    <main class="chat-main">
+        <header class="chat-header">
+            <div class="char-status">
+                <span class="status-dot"></span>
+                <span id="chat-header-name"></span>
+            </div>
+        </header>
+
+        <div id="chat-messages" class="chat-messages">
+        </div>
+
+        <footer class="chat-footer">
+            <form id="chat-form" class="chat-input-area">
+                <input type="text" id="chat-input" placeholder="Mesajınızı buraya yazın..." autocomplete="off">
+                <button type="submit" id="send-btn">
+                    <svg viewBox="0 0 24 24" width="24" height="24">
+                        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
+                    </svg>
+                </button>
+            </form>
+        </footer>
+    </main>
+</div>

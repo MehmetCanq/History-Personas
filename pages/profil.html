@@ -1,0 +1,32 @@
+<div class="profile-container">
+    <div class="auth-container">
+        <h2 id="profile-title">Profil Bilgileri</h2>
+        <div class="profile-header">
+            <div class="persona-img-container" style="width: 120px; height: 120px; margin: 0 auto 20px;">
+                <img id="profile-img" src="https://via.placeholder.com/150" alt="Profil Fotoğrafı">
+            </div>
+            <h3 id="profile-full-name" style="text-align: center; color: var(--text-color);"></h3>
+            <p id="profile-email" style="text-align: center; color: var(--secondary-text); margin-bottom: 20px;"></p>
+        </div>
+    </div>
+</div>
+
+<script>
+    (function () {
+        const user = JSON.parse(localStorage.getItem('kullanici'));
+        if (!user) {
+            navigateTo('/login');
+            return;
+        }
+
+        document.getElementById('profile-full-name').textContent = `${user.isim} ${user.soyisim}`;
+        document.getElementById('profile-email').textContent = user.email;
+
+        document.getElementById('stat-chats').textContent = Math.floor(Math.random() * 10) + 1;
+    })();
+
+    window.logout = () => {
+        localStorage.removeItem('oturumAcik');
+        navigateTo('/login');
+    };
+</script>

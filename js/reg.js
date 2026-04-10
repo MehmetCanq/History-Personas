@@ -1,7 +1,7 @@
 document.addEventListener('submit', (e) => {
     
     if (e.target.id === 'register-form') {
-        e.preventDefault(); //  y engelle
+        e.preventDefault();
 
         const isim = document.getElementById('reg-isim').value.trim();
         const soyisim = document.getElementById('reg-soyisim').value.trim();
@@ -11,7 +11,7 @@ document.addEventListener('submit', (e) => {
         const mailSablonu = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         
         if (!mailSablonu.test(email)) {
-            mesajKutusu.style.color = 'red';
+            mesajKutusu.style.color = '';
             mesajKutusu.textContent = "Lütfen geçerli bir mail adresi giriniz! (Örn: isim@gmail.com)";
             return; 
         }
@@ -26,8 +26,8 @@ document.addEventListener('submit', (e) => {
 
         localStorage.setItem('kullanici', JSON.stringify(kullanici));
 
-        mesajKutusu.style.color = 'green';
-        mesajKutusu.textContent = "Kayıt başarılı! Giriş sayfasına yönlendiriliyorsunuz...";
+        mesajKutusu.style.color = '';
+        mesajKutusu.textContent = "Kayıt başarılı! Giriş sayfasına yönlendiriliyorsunuz.";
 
         setTimeout(() => {
             navigateTo('/login'); 
@@ -43,8 +43,8 @@ document.addEventListener('submit', (e) => {
         const kayitliKullanici = JSON.parse(localStorage.getItem('kullanici'));
 
         if (kayitliKullanici && kayitliKullanici.email === girilenEmail && kayitliKullanici.sifre === girilenSifre) {
-            mesajKutusu.style.color = 'green';
-            mesajKutusu.textContent = "Giriş başarılı! Ana sayfaya yönlendiriliyorsunuz...";
+            mesajKutusu.style.color = '';
+            mesajKutusu.textContent = "Giriş başarılı! Ana sayfaya yönlendiriliyorsunuz";
             
             localStorage.setItem('oturumAcik', 'true');
 

@@ -1,0 +1,14 @@
+{
+  "title": {
+    "tr": "Hoş geldin",
+    "en": "Welcome"
+  },
+  "desc": {
+    "tr": "Siteme hoş geldin.",
+    "en": "Welcome to my website."
+  },
+  "search_placeholder": {
+    "tr": "Ara...",
+    "en": "Search..."
+  }
+}
