@@ -1,5 +1,9 @@
 <div class="not-found">
-    <h1>404</h1>
-    <p>Hey adamım burası 404 </p>
+  <h1 data-i18n="404_title">404</h1>
+  <p data-i18n="404_desc">404</p>
+  <a href="/" class="back-home-btn" data-i18n="back_home">Sayfaya Dön</a>
 </div>
 <link rel="stylesheet" href="css/style.css">
+<script>window.onload = () => {
+    history.replaceState(null, "", "/404");
+  };</script>

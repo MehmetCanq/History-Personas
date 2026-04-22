@@ -1,5 +1,5 @@
 document.addEventListener('submit', (e) => {
-    
+
     if (e.target.id === 'register-form') {
         e.preventDefault();
 
@@ -9,29 +9,45 @@ document.addEventListener('submit', (e) => {
         const sifre = document.getElementById('reg-sifre').value;
         const mesajKutusu = document.getElementById('reg-mesaj');
         const mailSablonu = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        
+
         if (!mailSablonu.test(email)) {
             mesajKutusu.style.color = '';
-            mesajKutusu.textContent = "Lütfen geçerli bir mail adresi giriniz! (Örn: isim@gmail.com)";
-            return; 
+            mesajKutusu.textContent = t('register_invalid_email');
+            return;
         }
 
-        const kullanici = {
-            isim: isim,
-            soyisim: soyisim,
-            email: email,
-            sifre: sifre,
-            profilFoto: null 
+        const profileInput = document.getElementById('reg-profil-foto');
+        const file = profileInput ? profileInput.files[0] : null;
+
+        const finalizeRegistration = (fotoUrl) => {
+            const kullanici = {
+                isim: isim,
+                soyisim: soyisim,
+                email: email,
+                sifre: sifre,
+                profilFoto: fotoUrl
+            };
+
+            localStorage.setItem('kullanici', JSON.stringify(kullanici));
+
+            mesajKutusu.style.color = '';
+            mesajKutusu.textContent = t('register_success');
+
+            setTimeout(() => {
+                navigateTo('/login');
+            }, 1000);
         };
 
-        localStorage.setItem('kullanici', JSON.stringify(kullanici));
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                finalizeRegistration(event.target.result);
+            };
+            reader.readAsDataURL(file);
+        } else {
+            finalizeRegistration(null);
+        }
 
-        mesajKutusu.style.color = '';
-        mesajKutusu.textContent = "Kayıt başarılı! Giriş sayfasına yönlendiriliyorsunuz.";
-
-        setTimeout(() => {
-            navigateTo('/login'); 
-        }, 1000);
     }
     if (e.target.id === 'login-form') {
         e.preventDefault();
@@ -44,16 +60,17 @@ document.addEventListener('submit', (e) => {
 
         if (kayitliKullanici && kayitliKullanici.email === girilenEmail && kayitliKullanici.sifre === girilenSifre) {
             mesajKutusu.style.color = '';
-            mesajKutusu.textContent = "Giriş başarılı! Ana sayfaya yönlendiriliyorsunuz";
-            
+            mesajKutusu.textContent = t('login_success');
+
             localStorage.setItem('oturumAcik', 'true');
+            if (window.updateAuthUI) window.updateAuthUI();
 
             setTimeout(() => {
-                navigateTo('/'); 
+                navigateTo('/');
             }, 1500);
         } else {
             mesajKutusu.style.color = 'red';
-            mesajKutusu.textContent = "Hatalı e-posta veya şifre!";
+            mesajKutusu.textContent = t('login_error');
         }
     }
 });

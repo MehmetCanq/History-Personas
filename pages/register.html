@@ -1,23 +1,23 @@
 <div class="auth-container">
-    <h2>Kayıt Ol</h2>
+    <h2 data-i18n="register_title">Kayıt Ol</h2>
     <form id="register-form">
         <div class="form-group">
-            <input type="text" id="reg-isim" class="auth-input" placeholder="İsim" required>
+            <input type="text" id="reg-isim" class="auth-input" data-i18n-attr="placeholder:register_name_placeholder" placeholder="İsim" required>
         </div>
         <div class="form-group">
-            <input type="text" id="reg-soyisim" class="auth-input" placeholder="Soyisim" required>
+            <input type="text" id="reg-soyisim" class="auth-input" data-i18n-attr="placeholder:register_surname_placeholder" placeholder="Soyisim" required>
         </div>
         <div class="form-group">
-            <input type="email" id="reg-email" class="auth-input" placeholder="E-posta Adresi" required>
+            <input type="email" id="reg-email" class="auth-input" data-i18n-attr="placeholder:register_email_placeholder" placeholder="E-posta Adresi" required>
         </div>
         <div class="form-group">
-            <input type="password" id="reg-sifre" class="auth-input" placeholder="Şifre" required>
+            <input type="password" id="reg-sifre" class="auth-input" data-i18n-attr="placeholder:register_password_placeholder" placeholder="Şifre" required>
         </div>
         <div class="form-group">
-            <label>Profil Fotoğrafı</label>
+            <label data-i18n="register_photo_label">Profil Fotoğrafı</label>
             <input type="file" id="reg-profil-foto" accept="image/*" class="auth-input">
         </div>
-        <button type="submit" class="auth-btn">Kayıt İşlemini Tamamla</button>
+        <button type="submit" class="auth-btn" data-i18n="register_complete_btn">Kayıt İşlemini Tamamla</button>
     </form>
     <p id="reg-mesaj"></p>
 </div>

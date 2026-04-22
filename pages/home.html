@@ -1,39 +1,51 @@
 <div class="home">
-    <h1>Konuşmak istediğin tarihi kişilik kim?</h1>
-    <p>Yapay zeka, tarihin en büyük zihinlerini canlandırıyor. Birini seç konuşmaya başla.</p>
+    <h1 data-i18n="home_title">Konuşmak istediğin tarihi kişilik kim?</h1>
+    <p data-i18n="home_desc">Yapay zeka, tarihin en büyük zihinlerini canlandırıyor. Birini seç konuşmaya başla.</p>
     
+    <div class="search-container">
+        <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="search-persona" data-i18n-attr="placeholder:search_placeholder" placeholder="Tarihi şahsiyet ara...">
+        </div>
+    </div>
+
     <div class="persona-gallery">
         <div class="persona-card" onclick="showCharacterCard('einstein')">
             <div class="persona-img-container">
-                <img src="https://i.pinimg.com/736x/0a/24/0a/0a240a1a982bebd41702d8ac0f64c80f.jpg" alt="Albert Einstein">
+                <img src="https://i.pinimg.com/736x/0a/24/0a/0a240a1a982bebd41702d8ac0f64c80f.jpg"
+                    alt="Albert Einstein">
             </div>
             <div class="persona-name">Albert Einstein</div>
         </div>
 
         <div class="persona-card" onclick="showCharacterCard('fatih')">
             <div class="persona-img-container">
-                <img src="https://i.pinimg.com/736x/ad/a0/c4/ada0c44a0d7aab33bdeada580784aca5.jpg" alt="Fatih Sultan Mehmet">
+                <img src="https://i.pinimg.com/736x/ad/a0/c4/ada0c44a0d7aab33bdeada580784aca5.jpg"
+                    alt="Fatih Sultan Mehmet">
             </div>
             <div class="persona-name">Fatih Sultan Mehmet</div>
         </div>
 
         <div class="persona-card" onclick="showCharacterCard('cengizhan')">
             <div class="persona-img-container">
-                <img src="https://i.ytimg.com/vi/6DYgHfVzI4E/oardefault.jpg?sqp=-oaymwEkCJUDENAFSFqQAgHyq4qpAxMIARUAAAAAJQAAyEI9AICiQ3gB&rs=AOn4CLBKBMKALBJqpSwLWcumx7crZPlcpg&usqp=CCk" alt="Cengiz Han">
+                <img src="https://i.ytimg.com/vi/6DYgHfVzI4E/oardefault.jpg?sqp=-oaymwEkCJUDENAFSFqQAgHyq4qpAxMIARUAAAAAJQAAyEI9AICiQ3gB&rs=AOn4CLBKBMKALBJqpSwLWcumx7crZPlcpg&usqp=CCk"
+                    alt="Cengiz Han">
             </div>
             <div class="persona-name">Cengiz Han</div>
         </div>
 
         <div class="persona-card" onclick="showCharacterCard('hitler')">
             <div class="persona-img-container">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Hitler_portrait_crop.jpg/500px-Hitler_portrait_crop.jpg" alt="Hitler">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Hitler_portrait_crop.jpg/500px-Hitler_portrait_crop.jpg"
+                    alt="Hitler">
             </div>
             <div class="persona-name">Hitler</div>
         </div>
 
         <div class="persona-card" onclick="showCharacterCard('brukhonenko')">
             <div class="persona-img-container">
-                <img src="https://hroniki.org/system/events/images/000/000/641/original/Брюхоненко.jpg?1440578283" alt="Sergei Sergeevich Brukhonenko">
+                <img src="https://hroniki.org/system/events/images/000/000/641/original/Брюхоненко.jpg?1440578283"
+                    alt="Sergei Sergeevich Brukhonenko">
             </div>
             <div class="persona-name">Sergei Brukhonenko</div>
         </div>
@@ -50,46 +62,52 @@
                 <img src="https://i.ytimg.com/vi/N5Xh1HKM7vY/hqdefault.jpg" alt="Aziz Sancar">
             </div>
             <div class="persona-name">Aziz Sancar</div>
-        </div>  
+        </div>
 
         <div class="persona-card" onclick="showCharacterCard('leonardo')">
             <div class="persona-img-container">
-                <img src="https://miro.medium.com/v2/resize:fit:1200/1*haDdeQxb3cKzWsXbl8AefA.jpeg" alt="Leonardo da Vinci">
+                <img src="https://miro.medium.com/v2/resize:fit:1200/1*haDdeQxb3cKzWsXbl8AefA.jpeg"
+                    alt="Leonardo da Vinci">
             </div>
             <div class="persona-name">Leonardo da Vinci</div>
         </div>
 
         <div class="persona-card" onclick="showCharacterCard('ataturk')">
             <div class="persona-img-container">
-                <img src="https://i.pinimg.com/736x/f4/31/38/f43138a73f718ee466fd54a2bf3e3121.jpg" alt="Mustafa Kemal Atatürk">
+                <img src="https://i.pinimg.com/736x/f4/31/38/f43138a73f718ee466fd54a2bf3e3121.jpg"
+                    alt="Mustafa Kemal Atatürk">
             </div>
             <div class="persona-name">Mustafa Kemal Atatürk</div>
         </div>
 
         <div class="persona-card" onclick="showCharacterCard('napoleon')">
             <div class="persona-img-container">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/8/8b/Painting_of_Napoleon_Bonaparte_by_Jacques-Louis_David%2C_1813.jpg" alt="Napoleon Bonaparte">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/8b/Painting_of_Napoleon_Bonaparte_by_Jacques-Louis_David%2C_1813.jpg"
+                    alt="Napoleon Bonaparte">
             </div>
             <div class="persona-name">Napoleon Bonaparte</div>
         </div>
 
         <div class="persona-card" onclick="showCharacterCard('nihalatsiz')">
             <div class="persona-img-container">
-                <img src="https://image.cnnturk.com/i/cnnturk/75/1200x675/61b4979517aca91b245a8222.jpg" alt="Nihal Atsız">
+                <img src="https://image.cnnturk.com/i/cnnturk/75/1200x675/61b4979517aca91b245a8222.jpg"
+                    alt="Nihal Atsız">
             </div>
             <div class="persona-name">Nihal Atsız</div>
         </div>
 
         <div class="persona-card" onclick="showCharacterCard('ilberortayli')">
             <div class="persona-img-container">
-                <img src="https://sonmuhurcom.teimg.com/crop/1280x720/sonmuhur-com/uploads/2024/07/whatsapp-image-2024-07-05-at-100130.jpeg" alt="İlber Ortaylı">
+                <img src="https://sonmuhurcom.teimg.com/crop/1280x720/sonmuhur-com/uploads/2024/07/whatsapp-image-2024-07-05-at-100130.jpeg"
+                    alt="İlber Ortaylı">
             </div>
             <div class="persona-name">İlber Ortaylı</div>
         </div>
 
         <div class="persona-card" onclick="showCharacterCard('attila')">
             <div class="persona-img-container">
-                <img src="https://ancientpedia.com/wp-content/uploads/2024/07/Attila-the-Huns-impact-on-Byzantine-Empire-1536x865.jpg" alt="Attila">
+                <img src="https://ancientpedia.com/wp-content/uploads/2024/07/Attila-the-Huns-impact-on-Byzantine-Empire-1536x865.jpg"
+                    alt="Attila">
             </div>
             <div class="persona-name">Attila</div>
         </div>
@@ -117,12 +135,12 @@
                 <h2 id="modal-name"></h2>
             </div>
             <div class="modal-body">
-                <p><strong>Dönem:</strong> <span id="modal-era"></span></p>
-                <p><strong>Uzmanlık:</strong> <span id="modal-expertise"></span></p>
+                <p><strong data-i18n="modal_era">Dönem:</strong> <span id="modal-era"></span></p>
+                <p><strong data-i18n="modal_expertise">Uzmanlık:</strong> <span id="modal-expertise"></span></p>
                 <p id="modal-bio" class="modal-bio"></p>
             </div>
             <div class="modal-footer">
-                <button class="chat-start-btn" onclick="startChat()">Sohbeti Başlat</button>
+                <button class="chat-start-btn" onclick="startChat()" data-i18n="start_chat_btn">Sohbeti Başlat</button>
             </div>
         </div>
     </div>

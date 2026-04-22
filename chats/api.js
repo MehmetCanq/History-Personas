@@ -72,10 +72,10 @@ ${signaturePhrases}
 }
 
 async function callGeminiAPI(char, history) {
-    const API_KEY = "AIzaSyBtkQw6dkZHl5rEjpMMQd4OVDfAkGHGCo8";
     const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`;
 
-    const systemPrompt = generateSystemPrompt(char);
+    const currentLang = localStorage.getItem('lang') || 'tr';
+    const systemPrompt = generateSystemPrompt(char, currentLang);
 
     const contents = [
         {

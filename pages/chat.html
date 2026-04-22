@@ -1,37 +1,60 @@
-<div class="chat-wrapper">
-    <aside class="chat-sidebar" id="chat-sidebar">
-        <div class="sidebar-header">
-            <img id="chat-char-img" src="" alt="">
-            <h3 id="chat-char-name"></h3>
-        </div>
-        <div class="sidebar-info">
-            <p><strong>Dönem:</strong> <span id="chat-char-era"></span></p>
-            <p><strong>Uzmanlık:</strong> <span id="chat-char-exp"></span></p>
-            <p id="chat-char-bio"></p>
-        </div>
-        <button class="new-chat-btn" onclick="navigateTo('/')">Yeni Karakter Seç</button>
-    </aside>
+<div id="chat-page-container">
 
-    <main class="chat-main">
-        <header class="chat-header">
-            <div class="char-status">
-                <span class="status-dot"></span>
-                <span id="chat-header-name"></span>
+    <div class="chat-wrapper" id="active-chat-view" style="display: none;">
+        <aside class="chat-sidebar" id="chat-sidebar">
+            <div class="sidebar-header">
+                <img id="chat-char-img" src="" alt="">
+                <h3 id="chat-char-name"></h3>
             </div>
-        </header>
+            <div class="sidebar-info">
+                <p><strong data-i18n="modal_era">Dönem:</strong> <span id="chat-char-era"></span></p>
+                <p><strong data-i18n="modal_expertise">Uzmanlık:</strong> <span id="chat-char-exp"></span></p>
+                <div id="chat-char-bio" class="chat-char-bio"
+                    style="font-size: 0.9rem; color: var(--secondary-text); margin-top: 10px; line-height: 1.4;"></div>
+            </div>
+            <button class="new-chat-btn-alt" onclick="startNewChat()" style="margin-top: 20px;" data-i18n="chat_open_new">Yeni Sohbet Aç</button>
+            <button class="auth-btn" onclick="navigateTo('/')" data-i18n="chat_select_new"
+                style="margin-top: 10px; background: transparent; border: 1px solid var(--border-color); color: var(--secondary-text); font-size: 0.8rem;">Yeni
+                Karakter Seç</button>
+        </aside>
 
-        <div id="chat-messages" class="chat-messages">
+        <main class="chat-main">
+            <header class="chat-header">
+                <div class="char-status">
+                    <span class="status-dot"></span>
+                    <span id="chat-header-name"></span>
+                </div>
+            </header>
+
+            <div id="chat-messages" class="chat-messages"></div>
+
+            <footer class="chat-footer">
+                <form id="chat-form" class="chat-input-area">
+                    <input type="text" id="chat-input" data-i18n-attr="placeholder:chat_input_placeholder" placeholder="Mesajınızı buraya yazın..." autocomplete="off">
+                    <button type="button" id="voice-btn" data-i18n-attr="title:voice_btn_title" title="Sesle yaz">🎤</button>
+                    <button type="submit" id="send-btn">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
+                        </svg>
+                    </button>
+                </form>
+            </footer>
+        </main>
+    </div>
+
+
+    <div id="history-view" class="chat-history-container" style="display: block;">
+        <div class="history-header">
+            <h2 style="color: var(--accent-color);" data-i18n="chat_history_title">Sohbet Geçmişi</h2>
+            <div style="display: flex; gap: 10px; align-items: center;">
+                <button class="history-home-btn" onclick="navigateTo('/');" data-i18n="back_home">Ana Sayfaya Dön</button>
+            </div>
         </div>
+        <div id="history-list" class="history-list">
+            <div style="text-align:center; color: var(--secondary-text); margin-top: 60px;">
+                <p data-i18n="loading">Yükleniyor...</p>
+            </div>
+        </div>
+    </div>
 
-        <footer class="chat-footer">
-            <form id="chat-form" class="chat-input-area">
-                <input type="text" id="chat-input" placeholder="Mesajınızı buraya yazın..." autocomplete="off">
-                <button type="submit" id="send-btn">
-                    <svg viewBox="0 0 24 24" width="24" height="24">
-                        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
-                    </svg>
-                </button>
-            </form>
-        </footer>
-    </main>
 </div>

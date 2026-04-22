@@ -1,19 +1,27 @@
 <div class="settings-container">
+    <h1 data-i18n="settings_title">Ayarlar</h1>
 
-    <h1>Ayarlar</h1>
+    <div class="settings-card">
+        <h3 data-i18n="appearance_mode">Görünüm Modu</h3>
+        <div class="theme-picker">
+            <button class="theme-btn" data-theme-btn="dark" onclick="setTheme('dark')" data-i18n="theme_dark">
+                Koyu
+            </button>
+            <button class="theme-btn" data-theme-btn="light" onclick="setTheme('light')" data-i18n="theme_light">
+                Açık
+            </button>
+            <button class="theme-btn" data-theme-btn="system" onclick="setTheme('system')" data-i18n="theme_system">
+                Sistem
+            </button>
+        </div>
+    </div>
 
-<div class="auth-container">
-    <h2>Ayarlar</h2>
-    <div class="form-group">
-        <label>Görünüm Modu</label>
-       <button class="auth-btn" onclick="document.body.classList.toggle('dark-theme')">Koyu Tema</button>
-        <button class="auth-btn" onclick="document.body.classList.toggle('light-theme')">Açık Tema</button>
-        <button class="auth-btn" onclick="document.body.classList.toggle('system-theme')">Sistem Tema</button>
+    <div class="settings-card">
+        <h3 data-i18n="language_title">Dil</h3>
+        <div class="lang-picker">
+            <button class="lang-btn" data-lang="tr" onclick="setLanguage('tr')" data-i18n="lang_tr">Türkçe</button>
+            <button class="lang-btn" data-lang="en" onclick="setLanguage('en')" data-i18n="lang_en">English</button>
+        </div>
     </div>
-    <div class="form-group">
-        <label>Dil</label>
-        <button class="auth-btn" onclick="setLanguage('tr')">tr</button>
-        <button class="auth-btn" onclick="setLanguage('en')">en</button>
-    </div>
-</div>
+
 </div>

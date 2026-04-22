@@ -1,32 +1,45 @@
-<div class="profile-container">
+<div class="profile-page">
     <div class="auth-container">
-        <h2 id="profile-title">Profil Bilgileri</h2>
-        <div class="profile-header">
-            <div class="persona-img-container" style="width: 120px; height: 120px; margin: 0 auto 20px;">
-                <img id="profile-img" src="https://via.placeholder.com/150" alt="Profil Fotoğrafı">
+        <h2 data-i18n="profile_title">Profil Bilgileri</h2>
+
+        <div class="profile-view-section" id="profile-view">
+            <div id="profile-img-container" class="profile-img-wrapper" style="margin: 0 auto 20px;">
             </div>
-            <h3 id="profile-full-name" style="text-align: center; color: var(--text-color);"></h3>
-            <p id="profile-email" style="text-align: center; color: var(--secondary-text); margin-bottom: 20px;"></p>
+            <h3 id="display-name"
+                style="text-align: center; color: var(--accent-color); font-size: 1.5rem; margin-bottom: 5px;"></h3>
+            <p id="display-email" style="text-align: center; color: var(--secondary-text); margin-bottom: 30px;"></p>
+
+            <button onclick="toggleEditMode(true)" class="auth-btn" data-i18n="profile_edit_btn">Profili Düzenle</button>
+            <button onclick="window.logout()" class="auth-btn" data-i18n="profile_logout_btn"
+                style="background: transparent; border: 1px solid var(--border-color); color: var(--secondary-text); margin-top: 15px;">Çıkış
+                Yap</button>
         </div>
+
+        <form id="profile-edit-form" class="profile-edit-section" style="display: none;">
+            <div class="form-group">
+                <label data-i18n="profile_img_label">Profil Fotoğrafı</label>
+                <input type="file" id="edit-profile-img" class="auth-input" accept="image/*">
+            </div>
+            <div class="form-group">
+                <label data-i18n="profile_name_label">İsim</label>
+                <input type="text" id="edit-isim" class="auth-input" required>
+            </div>
+            <div class="form-group">
+                <label data-i18n="profile_surname_label">Soyisim</label>
+                <input type="text" id="edit-soyisim" class="auth-input" required>
+            </div>
+            <div class="form-group">
+                <label data-i18n="profile_email_label">E-posta Adresi</label>
+                <input type="email" id="edit-email" class="auth-input" required>
+            </div>
+
+            <div style="display: flex; gap: 10px;">
+                <button type="submit" class="auth-btn" data-i18n="profile_save_btn">Kaydet</button>
+                <button type="button" onclick="toggleEditMode(false)" class="auth-btn" data-i18n="profile_cancel_btn"
+                    style="background: var(--bg-secondary); color: var(--text-color); border: 1px solid var(--border-color);">İptal</button>
+            </div>
+        </form>
+
+        <div id="profile-mesaj" style="margin-top: 15px; text-align: center; min-height: 20px;"></div>
     </div>
 </div>
-
-<script>
-    (function () {
-        const user = JSON.parse(localStorage.getItem('kullanici'));
-        if (!user) {
-            navigateTo('/login');
-            return;
-        }
-
-        document.getElementById('profile-full-name').textContent = `${user.isim} ${user.soyisim}`;
-        document.getElementById('profile-email').textContent = user.email;
-
-        document.getElementById('stat-chats').textContent = Math.floor(Math.random() * 10) + 1;
-    })();
-
-    window.logout = () => {
-        localStorage.removeItem('oturumAcik');
-        navigateTo('/login');
-    };
-</script>
